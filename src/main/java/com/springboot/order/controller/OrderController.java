@@ -51,8 +51,11 @@ public class OrderController {
     }
 
     @GetMapping
-    public ResponseEntity getOrders() {
-        List<Order> orders = orderService.findOrders();
+    public ResponseEntity getOrders(@Positive @RequestParam int page,
+                                    @Positive @RequestParam int size  ) {
+        List<Order> orders = orderService.findOrders(page,size);
+
+        List<Order> orders = pageOrders.get.contents
 
         List<OrderResponseDto> response =
                 orders.stream()
